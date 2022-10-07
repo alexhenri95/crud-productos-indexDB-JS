@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador y Listado de compras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/estilos.css">
+    
+</head>
+<body>
+    <div class="bg-gray-900 min-h-screen text-white flex-1">
+
+        <div class="flex items-center justify-center">
+            <div class="contendedor altura-contenedor bg-indigo-800 flex-1 flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:space-x-10 p-4 m-4 rounded-2xl">
+                <!-- Navigation -->
+                <div class="bg-indigo-500 px-2 lg:px-4 py-2 lg:py-10 rounded-xl flex lg:flex-col justify-between">
+                    <nav class="flex items-center flex-row space-x-2 lg:space-x-0 lg:flex-col lg:space-y-2">
+                        
+                        <label data-target="#listado-section" id="listado-icon" class="bg-gray-700 text-yellow-500 p-4 inline-flex justify-center rounded-md cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                              </svg>
+                              
+                        </label>
+        
+                        <label data-target="#formulario-section" id="formulario-icon" class="bg-gray-700 text-yellow-500 p-4 inline-flex justify-center rounded-md cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>  
+                        </label>
+        
+                        <label data-target="#carrito-section" id="carrito-icon" class="relative bg-gray-700 text-yellow-500 p-4 inline-flex justify-center rounded-md cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            </svg> 
+                            
+                        </label>
+        
+                    </nav>
+                </div>
+                <!-- Content -->
+                
+                <div class="flex-1 px-2 sm:px-0">
+        
+                    <div data-content id="listado-section">
+                        
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-3xl font-bold text-white">Listado de productos</h3>
+                            
+                        </div>
+                        <div class="sm:mb-0 my-5 altura-contenido">
+                            <div class="grid grid-cols-1 md:grid-cols-3" id="listado-productos">
+                                
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div data-content id="formulario-section">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-3xl font-bold text-white">Nuevo producto</h3>
+                            <div class="inline-flex items-center space-x-2">
+                                
+                            </div>
+                        </div>
+                        <div class="sm:mb-0 my-5 altura-contenido">
+                            <div class="w-full md:max-w-lg">
+                                <form id="formulario" class="bg-yellow-100 border-t-8 border-yellow-500 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                                    <div id="mensaje"></div>
+                                    <div class="mb-4">
+                                        <label class="block text-yellow-800 text-sm font-bold mb-2" for="username">
+                                            Producto
+                                        </label>
+                                        <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre" type="text" placeholder="Nombre del producto...">
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="block text-yellow-800 text-sm font-bold mb-2" for="categoria">
+                                            Categoría
+                                        </label>
+                                        <select class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="categoria">
+                                            <option value="">Seleccione...</option>
+                                            <option value="carne.png">Carnes</option>
+                                            <option value="farmacia.png">Farmacia</option>
+                                            <option value="comida-sana.png">Frutas y Verduras</option>
+                                            <option value="limpieza.png">Limpieza Y Utilidades</option>
+                                            <option value="estar.png">Mercearia Básica</option>
+                                            <option value="papeleria.png">Papelería</option>
+                                            <option value="canasta.png">Otro</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="block text-yellow-800 text-sm font-bold mb-2"  for="precio">
+                                            Precio
+                                        </label>
+                                        <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="precio" type="number" step="any" placeholder="0.00">
+                                    </div>
+                                  
+                                    <div class="flex items-center justify-end mt-6">
+                                        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline uppercase" type="button">
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div data-content id="carrito-section">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-3xl font-bold text-white">Listado de compras</h3>
+                            <div class="inline-flex items-center space-x-2">
+                                
+                            </div>
+                        </div>
+                        <div class="sm:mb-0 my-5 altura-contenido w-full">
+
+                            <div class="flex flex-col">
+                                <div class="shadow-md sm:rounded">
+                                    <div class="inline-block min-w-full align-middle">
+                                        <div class="overflow-hidden ">
+                                            <table class="table-auto w-full divide-y divide-gray-200">
+                                                <thead class="bg-yellow-500">
+                                                    <tr>
+                                                        <th scope="col" class="p-4">
+                                                            
+                                                        </th>
+                                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase">
+                                                            Producto
+                                                        </th>
+                                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase">
+                                                            Precio
+                                                        </th>
+                                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase">
+                                                            Cantidad
+                                                        </th>
+                                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase">
+                                                            Subtotal
+                                                        </th>
+                                                        <th scope="col" class="p-4">
+                                                            <span class="sr-only"></span>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="listado-bolsita" class="bg-white divide-y divide-gray-200">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="contenedor-botones"></div>
+
+                        </div>
+                    </div>
+        
+                </div>
+        
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/start.js" defer></script>
+    <script src="./js/01.js" defer></script>
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+[data-content] {
+    display: none;
+}
+
+.active[data-content] {
+    display: block;
+}
+
+
+.altura-contenedor {
+    height: calc(100vh - 2rem);
+}
+
+.altura-contenido {
+    height: calc(100vh - 14rem);
+    overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+    .altura-contenido {
+        height: calc(100vh - 8rem);
+        overflow-y: auto;
+    }
+}
